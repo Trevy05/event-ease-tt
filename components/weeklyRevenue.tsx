@@ -1,5 +1,3 @@
-"use client";
-
 import { BarChart, DonutChart } from "@tremor/react";
 import { Card, CardBody, CardHeader } from "@nextui-org/react";
 

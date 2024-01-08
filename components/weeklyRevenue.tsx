@@ -1,3 +1,5 @@
+"user server";
+
 import { BarChart, DonutChart } from "@tremor/react";
 import { Card, CardBody, CardHeader } from "@nextui-org/react";
 
@@ -59,7 +61,7 @@ const cities = [
   },
 ];
 
-const valueFormatter = (number) =>
+const valueFormatter = (number: number) =>
   `$ ${new Intl.NumberFormat("us").format(number).toString()}`;
 
 const WeeklyRevenue = () => (

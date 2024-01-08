@@ -175,7 +175,7 @@ export default function Page() {
         />
         <div className="p-10 flex flex-col justify-around h-full">
           <p>Make your own Event</p>
-          <Link href="/home/create-event">
+          <Link href="/create-event">
             <Button>Create Event</Button>
           </Link>
         </div>

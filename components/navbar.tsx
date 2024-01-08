@@ -10,7 +10,7 @@ import {
 
 export default function EventNavbar() {
   return (
-    <Navbar isBlurred={"false"} shouldHideOnScroll className="dark">
+    <Navbar isBlurred shouldHideOnScroll className="dark">
       <NavbarBrand>
         <p className="font-bold text-inherit text-yellow-500">Event Ease</p>
       </NavbarBrand>

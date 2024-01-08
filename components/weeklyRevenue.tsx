@@ -61,9 +61,6 @@ const cities = [
   },
 ];
 
-const valueFormatter = (number: number) =>
-  `$ ${new Intl.NumberFormat("us").format(number).toString()}`;
-
 const WeeklyRevenue = () => (
   <div className="h-screen w-screen">
     <Card className="w-9/10 m-5 h-1/3">
@@ -77,7 +74,6 @@ const WeeklyRevenue = () => (
           index="name"
           categories={["Number of threatened species"]}
           colors={["blue"]}
-          valueFormatter={valueFormatter}
           yAxisWidth={48}
         />
       </CardBody>
@@ -93,7 +89,6 @@ const WeeklyRevenue = () => (
             data={cities}
             category="sales"
             index="name"
-            valueFormatter={valueFormatter}
             colors={["slate", "violet", "indigo", "rose", "cyan", "amber"]}
           />
         </CardBody>
@@ -109,7 +104,6 @@ const WeeklyRevenue = () => (
             index="name"
             categories={["Number of threatened species"]}
             colors={["blue"]}
-            valueFormatter={valueFormatter}
             yAxisWidth={48}
           />
         </CardBody>

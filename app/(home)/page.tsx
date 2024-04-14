@@ -45,7 +45,7 @@ export default function Page() {
           </CardBody>
         </Card>
       </div>
-      <div className="p-10 m-10 grid grid-cols-4 grid-rows-2">
+      <div className="flex flex-wrap justify-center">
         <Card className="py-4 m-5">
           <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
             <p className="text-tiny uppercase font-bold">Daily Mix</p>
@@ -55,8 +55,8 @@ export default function Page() {
           <CardBody className="overflow-visible py-2">
             <Image
               alt="Card background"
-              className="object-cover rounded-xl"
-              src="/images/hero-card-complete.jpeg"
+              className="object-fill rounded-xl"
+              src="https://nextui-docs-v2.vercel.app/images/hero-card-complete.jpeg"
               width={270}
             />
           </CardBody>
@@ -70,8 +70,8 @@ export default function Page() {
           <CardBody className="overflow-visible py-2">
             <Image
               alt="Card background"
-              className="object-cover rounded-xl"
-              src="/images/hero-card-complete.jpeg"
+              className="object-fill rounded-xl"
+              src="https://nextui-docs-v2.vercel.app/images/hero-card-complete.jpeg"
               width={270}
             />
           </CardBody>
@@ -85,8 +85,8 @@ export default function Page() {
           <CardBody className="overflow-visible py-2">
             <Image
               alt="Card background"
-              className="object-cover rounded-xl"
-              src="/images/hero-card-complete.jpeg"
+              className="object-fill rounded-xl"
+              src="https://nextui-docs-v2.vercel.app/images/hero-card-complete.jpeg"
               width={270}
             />
           </CardBody>
@@ -100,8 +100,8 @@ export default function Page() {
           <CardBody className="overflow-visible py-2">
             <Image
               alt="Card background"
-              className="object-cover rounded-xl"
-              src="/images/hero-card-complete.jpeg"
+              className="object-fill rounded-xl"
+              src="https://nextui-docs-v2.vercel.app/images/hero-card-complete.jpeg"
               width={270}
             />
           </CardBody>
@@ -115,8 +115,8 @@ export default function Page() {
           <CardBody className="overflow-visible py-2">
             <Image
               alt="Card background"
-              className="object-cover rounded-xl"
-              src="/images/hero-card-complete.jpeg"
+              className="object-fill rounded-xl"
+              src="https://nextui-docs-v2.vercel.app/images/hero-card-complete.jpeg"
               width={270}
             />
           </CardBody>
@@ -130,8 +130,8 @@ export default function Page() {
           <CardBody className="overflow-visible py-2">
             <Image
               alt="Card background"
-              className="object-cover rounded-xl"
-              src="/images/hero-card-complete.jpeg"
+              className="object-fill rounded-xl"
+              src="https://nextui-docs-v2.vercel.app/images/hero-card-complete.jpeg"
               width={270}
             />
           </CardBody>
@@ -145,8 +145,8 @@ export default function Page() {
           <CardBody className="overflow-visible py-2">
             <Image
               alt="Card background"
-              className="object-cover rounded-xl"
-              src="/images/hero-card-complete.jpeg"
+              className="object-fill rounded-xl"
+              src="https://nextui-docs-v2.vercel.app/images/hero-card-complete.jpeg"
               width={270}
             />
           </CardBody>
@@ -160,14 +160,14 @@ export default function Page() {
           <CardBody className="overflow-visible py-2">
             <Image
               alt="Card background"
-              className="object-cover rounded-xl"
-              src="/images/hero-card-complete.jpeg"
+              className="object-fill rounded-xl"
+              src="https://nextui-docs-v2.vercel.app/images/hero-card-complete.jpeg"
               width={270}
             />
           </CardBody>
         </Card>
       </div>
-      <div className="h-1/4 bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500 flex justify-center items-center">
+      <div className="h-2/5 w-screen bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500 flex justify-center items-center">
         <Image
           width={300}
           alt="NextUI hero Image"

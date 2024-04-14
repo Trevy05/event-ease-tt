@@ -62,8 +62,8 @@ const cities = [
 ];
 
 const WeeklyRevenue = () => (
-  <div className="h-screen w-screen">
-    <Card className="w-9/10 m-5 h-1/3">
+  <div className="flex flex-col bg-black-500 w-9/10 justify-center">
+    <Card className="w-7/10 m-5">
       <CardHeader>
         Number of species threatened with extinction (2021)
       </CardHeader>
@@ -78,36 +78,55 @@ const WeeklyRevenue = () => (
         />
       </CardBody>
     </Card>
-    <div className="flex justify-between m-5 h-1/3 space-x-10">
-      <Card className="w-4/5 p-5">
-        <CardHeader>
-          Number of species threatened with extinction (2021)
-        </CardHeader>
-        <CardBody>
-          <DonutChart
-            className="mt-6"
-            data={cities}
-            category="sales"
-            index="name"
-            colors={["slate", "violet", "indigo", "rose", "cyan", "amber"]}
-          />
-        </CardBody>
-      </Card>
-      <Card className="w-4/5 p-5">
-        <CardHeader>
-          Number of species threatened with extinction (2021)
-        </CardHeader>
-        <CardBody>
-          <BarChart
-            className="mt-6"
-            data={chartdata}
-            index="name"
-            categories={["Number of threatened species"]}
-            colors={["blue"]}
-            yAxisWidth={48}
-          />
-        </CardBody>
-      </Card>
+    <div className="flex justify-between m-5 space-x-5">
+      <div className="">
+        <Card className="w-4/5 p-5 w-full">
+          <CardHeader>
+            Number of species threatened with extinction (2021)
+          </CardHeader>
+          <CardBody>
+            <DonutChart
+              className="mt-6"
+              data={cities}
+              category="sales"
+              index="name"
+              colors={["slate", "violet", "indigo", "rose", "cyan", "amber"]}
+            />
+          </CardBody>
+        </Card>
+      </div>
+      <div className="">
+        <Card className="w-4/5 p-5 w-full">
+          <CardHeader>
+            Number of species threatened with extinction (2021)
+          </CardHeader>
+          <CardBody>
+            <DonutChart
+              className="mt-6"
+              data={cities}
+              category="sales"
+              index="name"
+              colors={["slate", "violet", "indigo", "rose", "cyan", "amber"]}
+            />
+          </CardBody>
+        </Card>
+      </div>
+      <div className="">
+        <Card className="w-4/5 p-5 w-full">
+          <CardHeader>
+            Number of species threatened with extinction (2021)
+          </CardHeader>
+          <CardBody>
+            <DonutChart
+              className="mt-6"
+              data={cities}
+              category="sales"
+              index="name"
+              colors={["slate", "violet", "indigo", "rose", "cyan", "amber"]}
+            />
+          </CardBody>
+        </Card>
+      </div>
     </div>
   </div>
 );

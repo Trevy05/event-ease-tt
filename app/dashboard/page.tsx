@@ -2,7 +2,7 @@ import WeeklyRevenue from "../../components/weeklyRevenue";
 
 export default function Page() {
   return (
-    <div>
+    <div className="w-9/10">
       <WeeklyRevenue />
     </div>
   );

@@ -6,8 +6,12 @@ import {
   CardFooter,
   Divider,
 } from "@nextui-org/react";
+import Events from "@/components/events";
+import { fetchEvents } from "@/app/lib/data";
 
-export default function Events() {
+export default async function Event() {
+  const latestEvents = await fetchEvents(8);
+
   return (
     <div className="h-screen">
       <div className="h-3/4">
@@ -34,7 +38,7 @@ export default function Events() {
                 <p>Date & Time</p>
               </CardHeader>
               <CardBody>
-                <p>Saturdat, March 18 2023, 9.30PM </p>
+                <p>Saturday, March 18 2023, 9:30PM </p>
                 <p>Add to calendar</p>
                 <Button className="m-3">Book now</Button>
                 <Button className="m-3">Program promoter</Button>
@@ -80,7 +84,13 @@ export default function Events() {
         <div className="w-1/2 flex flex-col justify-between m-10">
           <div>
             <p>Event Location</p>
-            <p></p>
+            <iframe
+              className="gmap_iframe w-full h-full"
+              scrolling="no"
+              marginheight="0"
+              marginwidth="0"
+              src="https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;q=cowenhamilton&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
+            ></iframe>
           </div>
           <div>
             <p>Tags</p>
@@ -91,6 +101,13 @@ export default function Events() {
             <p></p>
           </div>
         </div>
+      </div>
+
+      <div>
+        <div className="w-11/12 mx-auto my-10">
+          <p>Other Events you may like</p>
+        </div>
+        <Events latestEvents={latestEvents} />
       </div>
     </div>
   );

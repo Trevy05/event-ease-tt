@@ -2,41 +2,28 @@
 
 import { z } from "zod";
 import { sql } from "@vercel/postgres";
-
-const FormSchema = z.object({
-  id: z.string(),
-  eventName: z.string(),
-  eventVenue: z.string(),
-  startTime: z.string(),
-  endTime: z.string(),
-  startDate: z.string(),
-  endDate: z.string(),
-  eventImage: z.string(),
-  eventDescription: z.string(),
-});
-
-const CreateEvent = FormSchema.omit({ id: true });
+import { revalidatePath } from "next/cache";
+import { redirect } from "next/navigation";
+import { fetchEvents, createEventInDatabase } from "./lib/data"; // Import the function to fetch last nine events
 
 export async function createEvent(formData: FormData) {
-  const {
-    eventName,
-    eventVenue,
-    startTime,
-    endTime,
-    startDate,
-    endDate,
-    eventImage,
-    eventDescription,
-  } = CreateEvent.parse({
-    eventName: formData.get("eventName"),
-    eventVenue: formData.get("eventVenue"),
-    startTime: formData.get("startTime"),
-    endTime: formData.get("endTime"),
-    startDate: formData.get("startDate"),
-    endDate: formData.get("endDate"),
-    eventImage: formData.get("eventImage"),
-    eventDescription: formData.get("eventDescription"),
-  });
+  try {
+    await createEventInDatabase(formData);
 
-  await sql`INSERT INTO invoices (eventName, eventVenue, startTime, endTime, startDate, endDate, eventImage, eventDescription) VALUES (${eventName}, ${eventVenue}, ${startTime}, ${endTime}, ${startDate}, ${endDate}, ${eventImage}, ${eventDescription})`;
+    revalidatePath("/");
+    redirect("/");
+  } catch (error) {
+    console.error("Error creating event:", error);
+    throw error;
+  }
+}
+
+export async function getEvents(noOfEvents: number) {
+  try {
+    const lastEvents = await fetchEvents(noOfEvents);
+    return lastEvents;
+  } catch (error) {
+    console.error(`Error fetching last ${noOfEvents} events:`, error);
+    throw error;
+  }
 }

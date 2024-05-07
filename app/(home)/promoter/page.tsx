@@ -1,4 +1,5 @@
 import { Image } from "@nextui-org/react";
+import Events from "@/components/events";
 
 export default function Page() {
   return (
@@ -30,6 +31,9 @@ export default function Page() {
             followed by a blender-render competition, which added to the
             excitement.
           </p>
+          <div className="my-20">
+            <p>Promoters Events</p>
+          </div>
         </div>
       </div>
     </div>

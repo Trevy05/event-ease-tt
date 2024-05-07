@@ -1,8 +1,11 @@
 import { Image, Card, CardBody } from "@nextui-org/react";
+import Events from "@/components/events";
+import { fetchEvents } from "@/app/lib/data";
 
-export default function Page() {
+export default async function Page() {
+  const latestEvents = await fetchEvents(8);
   return (
-    <div className="h-screen w-screen">
+    <div className="h-100 w-screen">
       <div className="flex justify-center m-20">
         <div className="w-[584.54px]">
           <div className="leading-extra-loose">
@@ -35,6 +38,9 @@ export default function Page() {
             src="https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?q=80&w=3270&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
           />
         </div>
+      </div>
+      <div className="mx-auto w-auto">
+        <Events latestEvents={latestEvents} />
       </div>
     </div>
   );

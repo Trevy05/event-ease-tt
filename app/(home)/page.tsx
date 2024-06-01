@@ -85,8 +85,8 @@ export default async function Page() {
       <div className="flex flex-col w-full text-center p-10 bg-slate-100">
         <p className="text-4xl p-3">Join these brands</p>
         <p className="text-lg w-5/12 mx-auto">
-          We've had the pleasure of working with industry-defining brands. These
-          are just some of them.
+          We have had the pleasure of working with industry-defining brands.
+          These are just some of them.
         </p>
         <Image src="Group 34.png" alt="brands" width={400} height={400} />
       </div>

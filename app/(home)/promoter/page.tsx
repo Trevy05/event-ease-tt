@@ -32,7 +32,9 @@ export default function Page() {
             excitement.
           </p>
           <div className="my-20">
-            <p>Promoters Events</p>
+            <p className="font-bold text-2xl">
+              Promoters <span className="text-yellow-500">Events</span>
+            </p>
           </div>
         </div>
       </div>

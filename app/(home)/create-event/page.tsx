@@ -3,12 +3,12 @@ import { createEvent } from "@/app/actions";
 
 export default function Page() {
   return (
-    <div className="h-100 w-screen bg-gray-300 flex justify-center">
+    <div className="h-100 w-screen bg-slate-100 flex justify-center dark">
       <div className="w-1/2 sm:w-full md:w-2/3">
         <h1 className="text-center my-5 subpixel-antialiased text-4xl font-bold">
           Create Event
         </h1>
-        <form action={createEvent}>
+        <form action={createEvent} className="text-slate-100">
           <div className="p-10 flex flex-col justify-around space-y-14">
             <Input
               name="eventName"
@@ -62,7 +62,10 @@ export default function Page() {
               placeholder="Enter your description"
               className="w-full"
             />
-            <Button type="submit" color="primary">
+            <Button
+              type="submit"
+              className="bg-yellow-500 text-gray-900 font-bold"
+            >
               Create Event
             </Button>
           </div>

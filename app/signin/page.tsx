@@ -9,7 +9,7 @@ export default function Page() {
           <span className="text-black text-2xl font-bold font-['Product Sans']">
             Event
           </span>
-          <span className="text-violet-600 text-2xl font-bold font-['Product Sans']">
+          <span className="text-yellow-500 text-2xl font-bold font-['Product Sans']">
             {" "}
             Hive
           </span>
@@ -33,7 +33,7 @@ export default function Page() {
         />
         <div className="flex flex-col space-y-7">
           <Button
-            className="w-2/5 mx-auto bg-violet-600 text-gray-100"
+            className="w-2/5 mx-auto bg-yellow-500 text-gray-900"
             size="md"
             radius="sm"
           >
@@ -41,7 +41,7 @@ export default function Page() {
           </Button>
           <p className="text-center">Or</p>
           <Button
-            className="w-2/5 mx-auto bg-violet-600 text-gray-100"
+            className="w-2/5 mx-auto bg-yellow-500 text-gray-900"
             size="md"
             radius="sm"
           >

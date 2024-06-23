@@ -18,12 +18,18 @@ export async function createEvent(formData: FormData) {
   }
 }
 
-export async function getEvents(noOfEvents: number) {
+export async function getEvents(
+  noOfEvents: number,
+  currentPage: number,
+  query?: string
+) {
   try {
-    const lastEvents = await fetchEvents(noOfEvents);
+    const lastEvents = await fetchEvents(noOfEvents, currentPage, query);
     return lastEvents;
   } catch (error) {
     console.error(`Error fetching last ${noOfEvents} events:`, error);
     throw error;
   }
 }
+
+export async function authenticate() {}

@@ -10,7 +10,7 @@ import Events from "@/components/events";
 import { fetchEvents } from "@/app/lib/data";
 
 export default async function Event() {
-  const latestEvents = await fetchEvents(8);
+  const latestEvents = await fetchEvents(8, 1, "");
 
   return (
     <div className="h-screen">

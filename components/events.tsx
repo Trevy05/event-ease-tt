@@ -1,6 +1,20 @@
 import { Button, Card, CardBody, CardHeader, Image } from "@nextui-org/react";
 
-export default async function Events({ latestEvents }) {
+// Define the type for an event object
+interface Event {
+  id: string;
+  event_name: string;
+  start_time: string;
+  start_date: string;
+  // Add other properties as needed
+}
+
+// Define the type for the latestEvents prop
+interface Props {
+  latestEvents: Event[];
+}
+
+export default async function Events({ latestEvents }: Props) {
   const events = Object.values(latestEvents);
   console.log(events);
 
@@ -28,7 +42,7 @@ export default async function Events({ latestEvents }) {
   };
 
   return (
-    <div className="my-10 w-screen mx-auto">
+    <div className="py-10 w-screen mx-auto">
       <div className="flex flex-wrap justify-start mx-auto my-5">
         {events.map((event) => (
           <Card key={event.id} className="py-4 m-5 max-w-xs grow">

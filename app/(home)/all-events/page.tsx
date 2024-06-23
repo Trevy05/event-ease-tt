@@ -1,9 +1,32 @@
-import { Image, Card, CardBody } from "@nextui-org/react";
+import { Image, Card, CardBody, Input, Pagination } from "@nextui-org/react";
 import Events from "@/components/events";
-import { fetchEvents } from "@/app/lib/data";
+import {
+  fetchEvents,
+  fetchAllEvents,
+  fetchAllSearchedEvents,
+} from "@/app/lib/data";
+import Search from "@/components/search";
+import Pagin from "@/components/pagin";
 
-export default async function Page() {
-  const latestEvents = await fetchEvents(8);
+export default async function Page({
+  searchParams,
+}: {
+  searchParams?: {
+    query?: string;
+    page?: string;
+  };
+}) {
+  const query = searchParams?.query || "";
+  const currentPage = Number(searchParams?.page) || 1;
+
+  const latestEvents = await fetchEvents(16, currentPage, query);
+
+  const totalEvents = await fetchAllEvents();
+  const allSearchedEvents = await fetchAllSearchedEvents(query);
+
+  const totalPages = Math.ceil(totalEvents.length / 16);
+  const totalSearchedPages = Math.ceil(allSearchedEvents.length / 16);
+
   return (
     <div className="h-100 w-screen">
       <div className="flex justify-center m-20">
@@ -39,8 +62,22 @@ export default async function Page() {
           />
         </div>
       </div>
+      <div className="w-full flex justify-between">
+        <p className="mx-14 font-bold text-2xl">
+          <span className="text-yellow-500">Events</span> Around You
+        </p>
+        <div className="mx-14 w-1/4 dark">
+          <Search placeholder="Type to Search" />
+        </div>
+      </div>
+
       <div className="mx-auto w-auto">
         <Events latestEvents={latestEvents} />
+      </div>
+      <div className="w-full p-5">
+        <div className="max-w-min mx-auto">
+          <Pagin totalPages={query ? totalSearchedPages : totalPages} />
+        </div>
       </div>
     </div>
   );

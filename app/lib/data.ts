@@ -59,14 +59,47 @@ export async function createEventInDatabase(formData: FormData) {
 }
 
 // Function to fetch the last 9 events from the database
-export async function fetchEvents(noOfEvents: number): Promise<Event[]> {
+export async function fetchEvents(
+  noOfEvents: number,
+  currentPage: number,
+  query: string = ""
+): Promise<Event[]> {
+  const offset = (currentPage - 1) * noOfEvents;
+  // SQL query to fetch the last 9 events ordered by start_date (or another appropriate column) in descending order
+  // The LIMIT clause limits the results to the last 9 rows
+  const { rows } = await sql<Event>`
+    SELECT id, event_name, event_venue, start_time, end_time, start_date, end_date, event_image, event_description
+    FROM events
+    WHERE event_name ILIKE '%' || ${query} || '%' OR event_venue ILIKE '%' || ${query} || '%'
+    ORDER BY start_date DESC
+    LIMIT ${noOfEvents} OFFSET ${offset}; ;
+  `;
+
+  // Return the rows, which contain the last 9 events from the database
+  return rows;
+}
+
+export async function fetchAllEvents(): Promise<Event[]> {
   // SQL query to fetch the last 9 events ordered by start_date (or another appropriate column) in descending order
   // The LIMIT clause limits the results to the last 9 rows
   const { rows } = await sql<Event>`
     SELECT id, event_name, event_venue, start_time, end_time, start_date, end_date, event_image, event_description
     FROM events
     ORDER BY start_date DESC
-    LIMIT ${noOfEvents};
+  `;
+
+  // Return the rows, which contain the last 9 events from the database
+  return rows;
+}
+
+export async function fetchAllSearchedEvents(query?: string): Promise<Event[]> {
+  // SQL query to fetch the last 9 events ordered by start_date (or another appropriate column) in descending order
+  // The LIMIT clause limits the results to the last 9 rows
+  const { rows } = await sql<Event>`
+    SELECT id, event_name, event_venue, start_time, end_time, start_date, end_date, event_image, event_description
+    FROM events
+    WHERE event_name ILIKE '%' || ${query} || '%' OR event_venue ILIKE '%' || ${query} || '%'
+    ORDER BY start_date DESC
   `;
 
   // Return the rows, which contain the last 9 events from the database

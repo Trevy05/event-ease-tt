@@ -17,37 +17,39 @@ export default function Page() {
         <p className="text-center text-black text-4xl font-bold font-['Product Sans']">
           Sign In to Event Hive
         </p>
-        <Input
-          isRequired
-          type="email"
-          label="Email"
-          defaultValue=""
-          className="max-w-xxl w-4/5 mx-auto"
-        />
-        <Input
-          isRequired
-          type="password"
-          label="Password"
-          defaultValue=""
-          className="max-w-xxl w-4/5 mx-auto"
-        />
-        <div className="flex flex-col space-y-7">
-          <Button
-            className="w-2/5 mx-auto bg-yellow-500 text-gray-900"
-            size="md"
-            radius="sm"
-          >
-            Sign Up
-          </Button>
-          <p className="text-center">Or</p>
-          <Button
-            className="w-2/5 mx-auto bg-yellow-500 text-gray-900"
-            size="md"
-            radius="sm"
-          >
-            Sign up with Google
-          </Button>
-        </div>
+        <form>
+          <Input
+            isRequired
+            type="email"
+            label="Email"
+            defaultValue=""
+            className="max-w-xxl w-4/5 mx-auto"
+          />
+          <Input
+            isRequired
+            type="password"
+            label="Password"
+            defaultValue=""
+            className="max-w-xxl w-4/5 mx-auto"
+          />
+          <div className="flex flex-col space-y-7">
+            <Button
+              className="w-2/5 mx-auto bg-yellow-500 text-gray-900"
+              size="md"
+              radius="sm"
+            >
+              Sign Up
+            </Button>
+            <p className="text-center">Or</p>
+            <Button
+              className="w-2/5 mx-auto bg-yellow-500 text-gray-900"
+              size="md"
+              radius="sm"
+            >
+              Sign up with Google
+            </Button>
+          </div>
+        </form>
       </div>
     </div>
   );

@@ -13,11 +13,11 @@ import Events from "@/components/events";
 import { fetchEvents } from "../lib/data";
 
 export default async function Page() {
-  const latestEvents = await fetchEvents(8);
+  const latestEvents = await fetchEvents(8, 1);
 
   return (
     <div>
-      <div className="h-4/6 h-screen w-screen relative bg-slate-100 p-5">
+      <div className="h-4/6 h-screen w-screen relative bg-slate-100 p-5 dark">
         <div className="h-5/6 w-11/12 bg-promoter-pic mx-auto rounded-2xl p-20">
           <p className="text-6xl antialiased font-semibold text-white uppercase text-center w-1/2 mx-auto">
             Made for those who do
@@ -41,7 +41,7 @@ export default async function Page() {
             <Input
               isReadOnly
               type="place"
-              label="Place"
+              label="Search Promoter"
               variant="bordered"
               defaultValue=""
               className="max-w-xs px-3"
@@ -55,13 +55,15 @@ export default async function Page() {
       </div>
 
       <div className="flex flex-col justify-center bg-slate-100 w-full">
-        <p className="mx-14 font-bold text-2xl">
+        <p className="mx-14 my-10 font-bold text-2xl">
           Upcoming <span className="text-yellow-500">Events</span>
         </p>
         <Events latestEvents={latestEvents} />
       </div>
 
-      <div className="h-2/5 w-screen py-5 bg-zinc-900 text-slate-100 flex justify-center items-center space-x-2">
+      <Divider />
+
+      <div className="h-2/5 w-screen py-5 bg-gradient-to-b from-amber-400 to-slate-400 text-slate-100 flex justify-center items-center space-x-2">
         <div className="w-1/2 flex justify-center">
           <Image
             width={400}
